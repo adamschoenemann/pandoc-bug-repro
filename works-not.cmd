@@ -1,0 +1,1 @@
+pandoc test.md --to=html5 -o test.html --syntax-definition=%cd%\test-syn-def.xml

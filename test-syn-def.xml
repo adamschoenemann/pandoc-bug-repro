@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="grammar" style="grammar">
+  <highlighting>
+    <contexts>
+      <context attribute="Normal" lineEndContext="#stay" name="code">
+        <RegExpr attribute="Token" context="#stay" String="[A-Z]([A-Z]|_)*" />
+        <DetectIdentifier attribute="Normal" context="#stay" />
+        <DetectChar attribute="Special" context="#stay" char="|" />
+        <DetectChar attribute="Special" context="#stay" char="=" />
+        <DetectChar attribute="Special" context="#stay" char="*" />
+        <DetectChar attribute="Special" context="#stay" char="[" />
+        <DetectChar attribute="Special" context="#stay" char="]" />
+        <DetectChar attribute="Special" context="#stay" char="+" />
+        <DetectChar attribute="Comment" context="comment" char=";" />
+        <DetectChar attribute="Token" context="string" char="&quot;" />
+        <DetectChar attribute="Regex" context="regex" char="/" />
+      </context>
+
+      <context attribute="Comment" lineEndContext="#pop" name="comment"></context>
+
+      <context attribute="Token" lineEndContext="#stay" name="string">
+        <DetectChar attribute="Token" context="#pop" char="&quot;" />
+      </context>
+
+      <context attribute="Regex" lineEndContext="#pop" name="regex">
+        <DetectChar attribute="Regex" context="#pop" char="/" />
+      </context>
+    </contexts>
+
+    <itemDatas>
+      <itemData name="Normal" defStyleNum="dsNormal" />
+      <itemData name="Comment" defStyleNum="dsComment" />
+      <itemData name="Special" defStyleNum="dsOthers" />
+      <itemData name="String" defStyleNum="dsString" />
+      <itemData name="Token" defStyleNum="dsKeyword" />
+      <itemData name="Regex" defStyleNum="dsPreprocessor" />
+    </itemDatas>
+  </highlighting>
+
+</language>
